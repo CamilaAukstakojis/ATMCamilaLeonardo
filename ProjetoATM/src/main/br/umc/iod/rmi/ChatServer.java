@@ -18,7 +18,7 @@ import java.rmi.registry.LocateRegistry;
  * @author marcio
  */
 public class ChatServer {
- public static void main(String args[]) throws RemoteException, MalformedURLException{
+ public static void main(String args[]) throws RemoteException, MalformedURLException{  
  
      LocateRegistry.createRegistry(1099);
      JPAMessengerImpl jpa = new JPAMessengerImpl();

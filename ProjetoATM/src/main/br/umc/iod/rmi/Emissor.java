@@ -21,17 +21,16 @@ JPAMessenger jpa;
 
  public Emissor() throws NotBoundException, MalformedURLException, RemoteException {
         jpa = (JPAMessenger)Naming.lookup("rmi://127.1.1.1/jpa");//2 passo
+        jpa.abrirConexao();
+        jpa.consultar("");
     }
 
-  
+  public static void main (String args [] ) throws MalformedURLException, RemoteException, NotBoundException{
+	  
+	  new Emissor();
+  }
     
     public void setMe(JPAMessenger dado){
       this.dado = dado;
-    }
-
-
-
-
-    
-    
+    }    
 }

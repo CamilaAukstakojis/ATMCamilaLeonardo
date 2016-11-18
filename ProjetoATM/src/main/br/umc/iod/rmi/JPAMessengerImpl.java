@@ -1,5 +1,7 @@
 package br.umc.iod.rmi;
 
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,11 +28,20 @@ import br.umc.iod.jpa.MinhaEntidade;
  *
  * @author marcio
  */
-public class JPAMessengerImpl implements JPAMessenger{
+public class JPAMessengerImpl implements JPAMessenger, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String texto;
 	private int numero;
 	public EntityManagerFactory emf;
 	public EntityManager em; 
+	
+	public JPAMessengerImpl() throws RemoteException {
+		
+		UnicastRemoteObject.exportObject(this, 1099);
+	} 
 	
 	
     public void abrirConexao(){
